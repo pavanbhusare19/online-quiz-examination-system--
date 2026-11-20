@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMaster - Online Examination System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="app-layout">
+    <aside class="sidebar">
+        <div class="brand">
+            <span class="brand-icon">Q</span>
+            <span>QuizMaster</span>
+        </div>
+
+        <p class="menu-label">MENU</p>
+        <nav>
+            <a href="#" class="nav-link active" data-page="dashboard">▦ Dashboard</a>
+            <a href="#" class="nav-link" data-page="quizzes">▤ All Quizzes</a>
+            <a href="#" class="nav-link" data-page="results">◷ My Results</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="profile">
+                <div class="avatar">P</div>
+                <div>
+                    <strong>Student</strong>
+                    <small>Quiz Participant</small>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h2 id="pageTitle">Dashboard</h2>
+                <p>Welcome back! Ready to test your knowledge?</p>
+            </div>
+            <div class="topbar-right">
+                <span class="status-dot"></span>
+                <span>Online</span>
+            </div>
+        </header>
+
+        <section id="dashboardPage" class="page">
+            <div class="welcome-banner">
+                <div>
+                    <span class="eyebrow">YOUR LEARNING JOURNEY</span>
+                    <h1>Learn. Practice. Succeed.</h1>
+                    <p>Challenge yourself with online quizzes and track your progress.</p>
+                    <button class="primary-btn" id="exploreBtn">Explore Quizzes →</button>
+                </div>
+                <div class="banner-art">📝</div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-icon purple">▤</span>
+                    <p>Total Quizzes</p>
+                    <h2 id="totalQuizzes">0</h2>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon green">✓</span>
+                    <p>Completed</p>
+                    <h2 id="completedQuizzes">0</h2>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon orange">★</span>
+                    <p>Average Score</p>
+                    <h2 id="averageScore">0%</h2>
+                </div>
+            </div>
+
+            <div class="section-heading">
+                <div>
+                    <h2>Available Quizzes</h2>
+                    <p>Choose a quiz and start learning.</p>
+                </div>
+                <button class="text-btn" id="viewAllBtn">View all →</button>
+            </div>
+            <div class="quiz-grid" id="dashboardQuizGrid"></div>
+        </section>
+
+        <section id="quizzesPage" class="page hidden">
+            <div class="section-heading">
+                <div>
+                    <h2>All Quizzes</h2>
+                    <p>Explore and attempt available examinations.</p>
+                </div>
+            </div>
+            <div class="quiz-grid" id="allQuizGrid"></div>
+        </section>
+
+        <section id="resultsPage" class="page hidden">
+            <div class="section-heading">
+                <div>
+                    <h2>My Results</h2>
+                    <p>Review your previous quiz attempts.</p>
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Quiz</th>
+                            <th>Score</th>
+                            <th>Correct Answers</th>
+                            <th>Date</th>
+
+                        </tr>
+                    </thead>
+                    <tbody id="resultsTable">
+                        <tr><td colspan="4">No quiz attempts yet.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="quizPage" class="page hidden">
+            <div class="quiz-header">
+                <button class="text-btn" id="backBtn">← Back to quizzes</button>
+                <div class="timer-box">⏱ Time left: <strong id="timer">00:00</strong></div>
+            </div>
+            <div class="quiz-panel">
+                <div class="quiz-progress">
+                    <span id="questionNumber">Question 1</span>
+                    <span id="progressPercent">0% completed</span>
+                </div>
+                <div class="progress-track"><div id="progressBar"></div></div>
+                <h2 id="questionText">Question will appear here</h2>
+                <div id="optionsContainer" class="options-container"></div>
+                <div class="quiz-actions">
+                    <button class="secondary-btn" id="previousBtn">Previous</button>
+                    <button class="primary-btn" id="nextBtn">Next Question →</button>
+                    <button class="primary-btn hidden" id="submitBtn">Submit Quiz</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="resultPage" class="page hidden">
+            <div class="result-card">
+                <div class="result-icon">🏆</div>
+                <h1>Quiz Completed!</h1>
+                <p>Your result has been calculated successfully.</p>
+                <h2 id="resultScore">0%</h2>
+                <p id="resultDetails"></p>
+                <p id="resultMessage"></p>
+                <p id="finalDetails">0 out of 0 correct answers</p>
+                <button class="primary-btn" id="resultHomeBtn">Back to Dashboard</button>
+            </div>
+        </section>
+
+        <footer>© <span id="currentYear"></span> QuizMaster. Learn something new every day.</footer>
+    </main>
+</div>
+
+<div id="toast" class="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
